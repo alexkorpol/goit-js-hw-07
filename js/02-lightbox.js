@@ -16,6 +16,8 @@ function buildGallery(arrGalary) {
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
-  scrollZoomFactor:0.1});
+  scrollZoomFactor: 0.1
+});
+  
 console.log(galleryItems);
 
