@@ -23,7 +23,7 @@ const clickOnGallery = (event) => {
   const selectImg = event.target;
   selectImg.src = selectImg.dataset.source;
   const instance = basicLightbox.create(`
-		<img width="1280" height="853" src=${selectImg.src}>
+		<img width="800" height="600" src=${selectImg.src}>
 	`);
   instance.show();
 
@@ -35,3 +35,4 @@ document.addEventListener("keydown", event => {
 };
   
 gallery.addEventListener("click", clickOnGallery);
+console.log(galleryItems);
