@@ -20,44 +20,27 @@ function buildGallery(arrGalary) {
 const clickOnGallery = (event) => {
   event.preventDefault();
   
-  const selectImg = event.target;
+  const selectImg = event.target;  
   selectImg.src = selectImg.dataset.source;
+  
   if (!selectImg.src) return;
+
   const instance = basicLightbox.create(`
 		<img width="800" height="600" src=${selectImg.src}>
 	`);
   instance.show();
 
-  document.addEventListener("keydown", event => {
-    if (event.code === "Escape") {
-      instance.close();
-      console.log("press Escape");
-    };
-    document.removeEventListener("keydown", event => {
-    if (event.code === "Escape") {
-      instance.close();
-      console.log("unpress Escape");
-    }
-  }, false)
-  }, false);
+  document.addEventListener("keydown", controlPressEscape.bind(document), true);
   
-}
-// const pressEsc = (event) => {
-//   if (event.code === "Escape") {
-//     instance.close();
-//     console.log("press Escape");
-//     document.removeEventListener("keydown", pressEsc);
-//   }
-// }
+function controlPressEscape(even) {
+  if (even.code === "Escape") {
+    instance.close();
+    document.removeEventListener("keydown", controlPressEscape, true);
+  }
+  }  
+  
+};
 
-
-// function pressEsc(event) {
-//   if (event.code === "Escape") {
-//     return this.instance.close()
-//   }
-//   }
-//   };
   
 gallery.addEventListener("click", clickOnGallery);
 console.log(galleryItems);
-
