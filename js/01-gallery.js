@@ -35,7 +35,7 @@ const clickOnGallery = (event) => {
 function controlPressEscape(even) {
   if (even.code === "Escape") {
     instance.close();
-    document.removeEventListener("keydown", controlPressEscape, true);
+    document.removeEventListener("keydown", controlPressEscape);
   }
   }  
   
