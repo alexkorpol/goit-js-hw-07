@@ -30,8 +30,7 @@ const clickOnGallery = (event) => {
 	`);
   instance.show();
 
-//!------------------ variant №1 close opening photo to press Escape------
-  document.addEventListener("keydown", controlPressEscape.bind(document));
+  document.addEventListener("keydown", controlPressEscape.bind(document), true);
   
 function controlPressEscape(even) {
   if (even.code === "Escape") {
