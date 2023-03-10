@@ -30,17 +30,26 @@ const clickOnGallery = (event) => {
 	`);
   instance.show();
 
-  document.addEventListener("keydown", controlPressEscape.bind(document), true);
+//!------------------ variant №1 close opening photo to press Escape------
+  document.addEventListener("keydown", controlPressEscape.bind(document));
   
 function controlPressEscape(even) {
   if (even.code === "Escape") {
     instance.close();
     document.removeEventListener("keydown", controlPressEscape);
   }
-  }  
+  }    
+
+// !------------------- variant №2 close opening photo to press Escape------
+// document.addEventListener("keydown", controlPressEscape.bind(document), {once: true});
+  
+// function controlPressEscape(even) {
+//   if (even.code === "Escape") {
+//     instance.close();
+//   }
+//   }  
   
 };
-
   
 gallery.addEventListener("click", clickOnGallery);
 console.log(galleryItems);
